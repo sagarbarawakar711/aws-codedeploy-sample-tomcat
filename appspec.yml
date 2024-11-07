@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /opt/tomcat/webapps
+    destination: /opt
 hooks:
   AfterInstall:
     - location: setup.sh
