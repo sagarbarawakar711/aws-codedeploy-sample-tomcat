@@ -1,11 +1,17 @@
-version: 0.1
+version: 0.2
 
 phases:
   build:
     commands:
-      - echo Build completed on `date`
-      - mvn package
-
+      - echo Entered the build phase...
+      - mvn install
+  post_build:
+    commands:
+      - echo Build completed successfully
+      - mv appspec.yml target/
 artifacts:
-  files:
-    - '**/*'
+  files: 
+    - target/SampleMavenTomcatApp.war
+    - target/appspec.yml
+    - setup.sh
+  discard-paths: yes
